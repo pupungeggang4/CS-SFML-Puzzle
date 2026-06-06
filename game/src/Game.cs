@@ -39,7 +39,7 @@ public class Game
         while (Window.IsOpen)
         {
             Window.DispatchEvents();
-            Window.Clear();
+            Window.Clear(Color.White);
             Window.Display();
         }
     }
