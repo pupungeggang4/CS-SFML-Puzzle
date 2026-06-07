@@ -9,7 +9,7 @@ public class Button
 {
     public FloatRect Area {get; set;}
 
-    Button(List<float> rect)
+    public Button(List<float> rect)
     {
         Area = new FloatRect((rect[0], rect[1]), (rect[2], rect[3]));
     }

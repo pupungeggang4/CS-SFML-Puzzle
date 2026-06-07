@@ -11,6 +11,8 @@ public class Game
     public View ViewUI {get; set;}
     public uint Width {get; set;} public uint Height {get; set;}
 
+    public Scene Scene {get; set;}
+
     public Game()
     {
         var monitor = VideoMode.DesktopMode;
@@ -26,11 +28,15 @@ public class Game
         }
         var mode = new VideoMode((Width, Height));
         Window = new RenderWindow(mode, "Planter Puzzle");
+        ViewUI = new View(new FloatRect((0, 0), (1280, 720)));
+        Window.SetView(ViewUI);
         Window.Closed += (sender, e) => Window.Close();
+        Window.MouseButtonReleased += (sender, e) => MouseUp(sender, e);
     }
 
     public void Run()
     {
+        Scene = new SceneTitle(this);
         Loop();
     }
 
@@ -39,7 +45,9 @@ public class Game
         while (Window.IsOpen)
         {
             Window.DispatchEvents();
+            Scene.Update(this);
             Window.Clear(Color.White);
+            Scene.Render(this);
             Window.Display();
         }
     }
@@ -54,8 +62,9 @@ public class Game
 
     }
 
-    public void MouseUp()
+    public void MouseUp(Object sender, MouseButtonEventArgs e)
     {
-
+        Vector2f pos = new Vector2f(e.Position.X * 1280 / Width, e.Position.Y * 720 / Height);
+        Scene.MouseUp(this, pos, e.Button);
     }
 }

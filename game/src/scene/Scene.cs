@@ -12,27 +12,27 @@ public class Scene
 
     }
 
-    public virtual void Update()
+    public virtual void Update(Game game)
     {
 
     }
 
-    public virtual void Render()
+    public virtual void Render(Game game)
     {
 
     }
 
-    public virtual void KeyDown()
+    public virtual void KeyDown(Game game)
     {
 
     }
 
-    public virtual void KeyUp()
+    public virtual void KeyUp(Game game)
     {
 
     }
 
-    public virtual void MouseUp()
+    public virtual void MouseUp(Game game, Vector2f pos, Mouse.Button button)
     {
 
     }

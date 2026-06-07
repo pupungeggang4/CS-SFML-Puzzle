@@ -7,7 +7,32 @@ namespace PlanterPuzzle;
 
 public class SceneField : Scene
 {
-    public SceneField()
+    public SceneField(Game game)
+    {
+
+    }
+
+    public override void Update(Game game)
+    {
+
+    }
+
+    public override void Render(Game game)
+    {
+
+    }
+
+    public override void KeyDown(Game game)
+    {
+
+    }
+
+    public override void KeyUp(Game game)
+    {
+
+    }
+
+    public override void MouseUp(Game game, Vector2f pos, Mouse.Button button)
     {
 
     }

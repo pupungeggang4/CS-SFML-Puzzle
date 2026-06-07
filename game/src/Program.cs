@@ -9,6 +9,7 @@ public class Program
 {
     static void Main(string[] args)
     {
+        Asset.LoadAsset();
         Game game = new Game();
         game.Run();
     }
