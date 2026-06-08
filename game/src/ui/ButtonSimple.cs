@@ -23,7 +23,7 @@ public class ButtonSimple : Button
         Label.FillColor = Color.Black;
     }
 
-    public void Render(Game game)
+    public override void Render(Game game)
     {
         game.Window.Draw(Background);
         game.Window.Draw(Label);

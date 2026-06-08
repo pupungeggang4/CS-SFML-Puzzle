@@ -9,13 +9,15 @@ namespace PlanterPuzzle;
 public class SceneTitle : Scene
 {
     public Text TextTitle {get; set;} = new Text(Asset.Neodgm, "Planter Puzzle", 32);
-    public ButtonSimple ButtonExit {get; set;} = new ButtonSimple([160, 160, 960, 80],  Color.Cyan, "Quit Game");
+    public ButtonSimple ButtonStart {get; set;} = new ButtonSimple(UI.Title["ButtonStart"],  Color.Cyan, "Start Game");
+    public ButtonSimple ButtonErase {get; set;} = new ButtonSimple(UI.Title["ButtonErase"],  Color.Yellow, "Erase Data");
+    public ButtonSimple ButtonQuit {get; set;} = new ButtonSimple(UI.Title["ButtonQuit"],  Color.Cyan, "Quit Game");
     public int SelectedTitle {get; set;}
     public Sprite Arrow {get; set;} = new Sprite(Asset.Arrow);
 
     public SceneTitle(Game game)
     {
-        TextTitle.Position = new Vector2f(20, 20);
+        TextTitle.Position = new Vector2f(UI.TextTitle[0], UI.TextTitle[1]);
         TextTitle.FillColor = Color.Black;
 
         SelectedTitle = 0;
@@ -28,9 +30,11 @@ public class SceneTitle : Scene
     public override void Render(Game game)
     {
         game.Window.Draw(TextTitle);
-        Arrow.Position = new Vector2f(80, 160 + 80 * SelectedTitle);
+        Arrow.Position = new Vector2f(UI.ArrowTitle[SelectedTitle][0], UI.ArrowTitle[SelectedTitle][1]);
         game.Window.Draw(Arrow);
-        ButtonExit.Render(game);
+        ButtonStart.Render(game);
+        ButtonErase.Render(game);
+        ButtonQuit.Render(game);
     }
 
     public override void KeyDown(Game game, Key key)
@@ -73,7 +77,7 @@ public class SceneTitle : Scene
     {
         if (button == Mouse.Button.Left)
         {
-            if (ButtonExit.Contains(pos))
+            if (ButtonQuit.Contains(pos))
             {
                 game.Window.Close();
             }
