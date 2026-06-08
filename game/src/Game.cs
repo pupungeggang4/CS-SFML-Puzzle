@@ -32,6 +32,8 @@ public class Game
         Window.SetView(ViewUI);
         Window.Closed += (sender, e) => Window.Close();
         Window.MouseButtonReleased += (sender, e) => MouseUp(sender, e);
+        Window.KeyPressed += (sender, e) => KeyDown(sender, e);
+        Window.KeyReleased += (sender, e) => KeyUp(sender, e);
     }
 
     public void Run()
@@ -52,14 +54,14 @@ public class Game
         }
     }
 
-    public void KeyDown()
+    public void KeyDown(Object sender, KeyEventArgs e)
     {
-
+        Scene.KeyDown(this, e.Code);
     }
 
-    public void KeyUp()
+    public void KeyUp(Object sender, KeyEventArgs e)
     {
-
+        Scene.KeyUp(this, e.Code);
     }
 
     public void MouseUp(Object sender, MouseButtonEventArgs e)

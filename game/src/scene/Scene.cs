@@ -22,12 +22,12 @@ public class Scene
 
     }
 
-    public virtual void KeyDown(Game game)
+    public virtual void KeyDown(Game game, Keyboard.Key key)
     {
 
     }
 
-    public virtual void KeyUp(Game game)
+    public virtual void KeyUp(Game game, Keyboard.Key key)
     {
 
     }

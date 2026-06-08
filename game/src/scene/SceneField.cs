@@ -22,12 +22,12 @@ public class SceneField : Scene
 
     }
 
-    public override void KeyDown(Game game)
+    public override void KeyDown(Game game, Keyboard.Key key)
     {
 
     }
 
-    public override void KeyUp(Game game)
+    public override void KeyUp(Game game, Keyboard.Key key)
     {
 
     }
