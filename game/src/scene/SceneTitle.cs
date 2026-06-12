@@ -9,9 +9,10 @@ namespace PlanterPuzzle;
 public class SceneTitle : Scene
 {
     public Text TextTitle {get; set;} = new Text(Asset.Neodgm, "Planter Puzzle", 32);
-    public ButtonSimple ButtonStart {get; set;} = new ButtonSimple(UI.Title["ButtonStart"],  Color.Cyan, "Start Game");
-    public ButtonSimple ButtonErase {get; set;} = new ButtonSimple(UI.Title["ButtonErase"],  Color.Yellow, "Erase Data");
-    public ButtonSimple ButtonQuit {get; set;} = new ButtonSimple(UI.Title["ButtonQuit"],  Color.Cyan, "Quit Game");
+    public ButtonTexture ButtonStart {get; set;} = new ButtonTexture(UI.Title["ButtonStart"], Asset.ButtonLong, "Start Game", 32);
+    public ButtonTexture ButtonErase {get; set;} = new ButtonTexture(UI.Title["ButtonErase"], Asset.ButtonLong, "Erase Data", 32);
+    public ButtonTexture ButtonQuit {get; set;} = new ButtonTexture(UI.Title["ButtonQuit"], Asset.ButtonLong, "Quit Game", 32);
+
     public int SelectedTitle {get; set;}
     public Sprite Arrow {get; set;} = new Sprite(Asset.Arrow);
 
@@ -55,7 +56,7 @@ public class SceneTitle : Scene
         {
             if (SelectedTitle == 0)
             {
-
+                game.Scene = new SceneField(game);
             }
             else if (SelectedTitle == 1)
             {
@@ -77,7 +78,11 @@ public class SceneTitle : Scene
     {
         if (button == Mouse.Button.Left)
         {
-            if (ButtonQuit.Contains(pos))
+            if (ButtonStart.Contains(pos))
+            {
+                game.Scene = new SceneField(game);
+            }
+            else if (ButtonQuit.Contains(pos))
             {
                 game.Window.Close();
             }
